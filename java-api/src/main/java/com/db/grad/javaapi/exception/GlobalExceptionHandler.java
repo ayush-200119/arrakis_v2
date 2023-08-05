@@ -15,7 +15,14 @@ public class GlobalExceptionHandler {
          ErrorDetails errorDetails = new ErrorDetails(new Date(), ex.getMessage(), request.getDescription(false),HttpStatus.NOT_FOUND);
          return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
     }
-
+    
+    @ExceptionHandler(ResourceAlreadyExistsException.class)
+    public ResponseEntity<?> resourceAlreadyExistsException(ResourceAlreadyExistsException ex, WebRequest request) {
+         ErrorDetails errorDetails = new ErrorDetails(new Date(), ex.getMessage(), request.getDescription(false),HttpStatus.BAD_REQUEST);
+         return new ResponseEntity<>(errorDetails, HttpStatus.BAD_REQUEST);
+    }
+    
+    
     @ExceptionHandler(Exception.class)
     public ResponseEntity<?> globleExcpetionHandler(Exception ex, WebRequest request) {
         ErrorDetails errorDetails = new ErrorDetails(new Date(), ex.getMessage(), request.getDescription(false),HttpStatus.INTERNAL_SERVER_ERROR);

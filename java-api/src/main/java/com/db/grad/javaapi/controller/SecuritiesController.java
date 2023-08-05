@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.*;
 
+import com.db.grad.javaapi.dto.SecuritiesDto;
+import com.db.grad.javaapi.exception.ResourceAlreadyExistsException;
 import com.db.grad.javaapi.exception.ResourceNotFoundException;
 import com.db.grad.javaapi.model.Securities;
 import com.db.grad.javaapi.service.SecuritiesService;
@@ -32,7 +34,7 @@ public class SecuritiesController {
 	}
 	
 	@PostMapping("/security")
-	public Securities createSecurity(@Valid @RequestBody Securities security)
+	public Securities createSecurity(@Valid @RequestBody Securities security) throws ResourceAlreadyExistsException
 	{
 		return service.saveSecurity(security);
 	}
@@ -45,5 +47,11 @@ public class SecuritiesController {
 	@DeleteMapping("/security/{id}")
 	public Securities deleteSecurityById(@PathVariable(value="id") int id) throws ResourceNotFoundException {
 		return service.deleteSecurity(id);
+	}
+	
+	@PatchMapping("/security/{id}")
+	public Securities updateSecurity(@PathVariable(value="id") int id,@RequestBody SecuritiesDto updatedSecurity) 
+	throws ResourceNotFoundException{
+		return service.updateSecurity(updatedSecurity, id);
 	}
 }

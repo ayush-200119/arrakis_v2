@@ -35,7 +35,7 @@ public class Securities {
 		
 	}
 	
-	@Column(name = "rating",nullable = false)
+	@Column(name = "rating",nullable = true)
 	public String getRating() {
 		return rating;
 	}
@@ -132,7 +132,7 @@ public class Securities {
 		this.faceValue = faceValue;
 	}
 	
-	@Column(name = "status",nullable = false)
+	@Column(name = "status",nullable = true)
 	public String getStatus() {
 		return status;
 	}
