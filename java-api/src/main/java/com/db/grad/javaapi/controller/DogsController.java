@@ -27,6 +27,7 @@ public class DogsController {
 
     @GetMapping("/dogs")
     public List<Dogs> getAllDogs() {
+    	System.out.println("In get Api");
         return dogsService.getAllDogs();
     }
 
