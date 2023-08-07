@@ -1,0 +1,63 @@
+# This file tells git to ignore the following files and folders which your IDE or development process might generate
+# but you do not necessarily want to commit to the remote repository :)
+.idea/
+*.iml
+*.pyc
+py3/
+data/
+build/
+dist/
+.pytest_cache/
+.vscode/
+**/target/**
+react-app/src/node/**
+**/package-lock.json
+
+# Distribution / packaging
+dist/
+downloads/
+eggs/
+.eggs/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+*.pkl
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+
+# Flask stuff:
+instance/
+.webassets-cache
+
+# pyenv
+.python-version
+
+# Environments
+.env
+.venv
+python-api/env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+{"mode":"full","isActive":false}
