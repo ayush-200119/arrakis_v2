@@ -1,8 +1,14 @@
-import React from 'react'
-
+import React,{useState , useEffect} from 'react'
+import { Routes, Route } from "react-router-dom";
+import ApproverLanding from './ApproverLanding';
+import ApproverMain from './ApproverMain'
 const Approver = () => {
   return (
-    <div>Approver</div>
+    <Routes>
+    <Route path = "/" element = {<ApproverMain />}>
+    <Route index element={<ApproverLanding/>}/>
+    </Route>
+    </Routes>
   )
 }
 
