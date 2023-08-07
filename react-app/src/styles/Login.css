@@ -6,6 +6,7 @@
     height: 100vh;
     background-color: #f0f0f0;
     color: #00050b;
+    
   }
   
   input {
@@ -14,6 +15,8 @@
     width: 250px;
   }
   
+ 
+
   button {
     padding: 10px 20px;
     background-color: #00050b;

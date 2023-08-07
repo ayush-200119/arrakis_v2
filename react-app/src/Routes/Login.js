@@ -1,6 +1,7 @@
 
 
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import 'D:/arrakis_v2/react-app/src/styles/Login.css';
 
 const Login = () => {
@@ -19,7 +20,9 @@ const Login = () => {
   };
 
   return (
+   
     <div className="login">
+      
       <h2 color='black'>Login</h2>
       <input
         type="text"
@@ -33,9 +36,12 @@ const Login = () => {
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
-      <button onClick={handleLogin}>Login</button>
+       <Link to="D:/arrakis_v2/react-app/src/Routes/User/UserLanding.js">
+            <button>Login</button>
+       </Link>
       {error && <p className="error">{error}</p>}
-    </div>
+      </div>
+      
   );
 };
 

@@ -59,6 +59,33 @@ body {
   border-color: #040404;
 } 
 
+.bond-container {
+  padding: 20px;
+}
+
+.filter-container {
+  margin-bottom: 20px;
+}
+
+.bonds-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.bond-card {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+}
+
+@media screen and (max-width: 768px) {
+  .bonds-list {
+    grid-template-columns: 1fr;
+  }
+}
+
 
 .button-container {
   margin-top: 20px;
