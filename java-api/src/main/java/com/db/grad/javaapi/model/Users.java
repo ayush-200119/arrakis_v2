@@ -1,8 +1,11 @@
 package com.db.grad.javaapi.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -14,6 +17,9 @@ public class Users {
 	private String email;
 	private String role;
 	private String password;
+	
+	@OneToMany(mappedBy = "user")
+	private List<BookUsers> bookUsers;
 	
 	@Column(name = "password",nullable = false)
 	public String getPassword() {
