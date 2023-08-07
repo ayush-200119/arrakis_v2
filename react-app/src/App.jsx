@@ -31,7 +31,7 @@ const Register = lazy(() => import('./Routes/Register'))
 const Login = lazy(() => import('./Routes/Login'))
 // const User = lazy(() => import('./Routes/User/User'))
 // const Approver = lazy(() => import('./Routes/Approver/Approver'))
-const user1 = "approver";
+const user1 = AuthService.getCurrentUser();
 // const Forgot = lazy(() => import("./Routes/Forgot"))
 // const NewPassword = lazy(() => import("./Routes/NewPassword"))
 // const ResetPasswordSuccessful = lazy(() => import("./Routes/ResetPasswordSuccessful"))
@@ -65,9 +65,9 @@ const App = () => {
             />} />
            
             <Route
-              path="user/*"
+              path="/user/*"
               element={
-                <ProtectedRoute isAllowed={!!user1 && user1.role === "user"}>
+                <ProtectedRoute isAllowed={!!user1 && (user1.role === "user1" || user1.role === "user2" ||user1.role === "user3" || user1.role === "user4")}>
                   <User
                   
                    />
