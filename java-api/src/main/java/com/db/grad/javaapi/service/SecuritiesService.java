@@ -24,7 +24,7 @@ public class SecuritiesService {
 	public Securities saveSecurity(Securities security)throws ResourceAlreadyExistsException {
 		Optional<Securities> existingSecurity= repository.findById(security.getId());
 		if(existingSecurity.isPresent()) {
-			throw new ResourceAlreadyExistsException("Security with the id: "+security.getId()+"already exists");
+			throw new ResourceAlreadyExistsException("Security with the id: "+security.getId()+" already exists");
 		}
 		
 		return repository.save(security);
