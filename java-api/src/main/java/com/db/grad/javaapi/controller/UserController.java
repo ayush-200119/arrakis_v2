@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.db.grad.javaapi.dto.SecuritiesDto;
+import com.db.grad.javaapi.dto.userDto.UserLoginRequestDto;
 import com.db.grad.javaapi.exception.ResourceAlreadyExistsException;
 import com.db.grad.javaapi.exception.ResourceNotFoundException;
 import com.db.grad.javaapi.model.Securities;
@@ -39,4 +41,8 @@ public class UserController {
 		return service.getUserById(id);
 	}
 	
+	@PostMapping("/user/login")
+	public Users loginUser(@RequestBody UserLoginRequestDto request)throws ResourceNotFoundException{
+		return service.getUserByEmailAndPassword(request);
+	}
 }

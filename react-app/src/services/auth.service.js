@@ -3,33 +3,22 @@ import authHeader from "./auth.headers";
 
 // const API_URL = "https://wingrowagritech.herokuapp.com/auth/";
 // const API_URL = "https://wingrowmarket.onrender.com/auth/";
-const API_URL1 = "https://wingrowmarket.com:8443/auth/";
  //const API_URL = "https://wingrowmarket.com/";
 //const REACT_APP_API_URL="http://localhost:4000/";
 const { REACT_APP_API_URL } = process.env;
 //console.log("the url : ",REACT_APP_API_URL)
 
 const register = (
-  phone,
-  password,
-  firstname,
-  lastname,
-  type,
-  farmertype,
-  address,
-  tags,
-  employeeID,
+  name,
+  role,
+  email,
+  password
 ) => {
-  return axios.post(REACT_APP_API_URL + "auth/signup", {
-    phone,
-    password,
-    firstname,
-    lastname,
-    type,
-    farmertype,
-    address,
-    tags,
-  employeeID,
+  return axios.post(REACT_APP_API_URL + "api/v1/user", {
+    name,
+    role,
+    email,
+    password
   });
 };
 

@@ -1,7 +1,11 @@
 import React from 'react'
 import { useState } from 'react';
 import './Register.css'
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 
+import AuthService from '../services/auth.service';
 const Register = () => {
 
   
@@ -9,7 +13,11 @@ const Register = () => {
       name: '',
       email: '',
       password: '',
+      role:'',
+
     });
+    const navigate = useNavigate();
+
   
     const handleInputChange = (event) => {
       const { name, value } = event.target;
@@ -23,6 +31,53 @@ const Register = () => {
       event.preventDefault();
       // You can add your form submission logic here
       console.log(formData);
+      AuthService.register(formData.name,formData.role,formData.email,formData.password)
+      .then(() => {
+        toast.success("Registration successful!", {
+          position: "top-center",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+        setTimeout(() => {
+          //logic
+          if (formData.role === "user1" ||formData.role === "user2" ||formData.role === "user3" ||formData.role === "user4" ) {
+            navigate("/user");
+          } else {
+            navigate("/approver")
+          }
+        }, 1000);
+      },
+      (error) => {
+        toast.warn("User Already Exists", {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+        setFormData({
+          name: '',
+          email: '',
+          password: '',
+          role:'',
+        });
+        setTimeout(() => {
+         
+            navigate("/login");
+          
+
+          window.location.reload();
+        }, 1000);
+      })
+      
     };
   
     return (
@@ -36,6 +91,18 @@ const Register = () => {
             name="name"
             value={formData.name}
             placeholder="Enter your name here"
+            onChange={handleInputChange}
+            required
+          />
+  
+          <br />
+          <label htmlFor="role">Role:</label>
+          <input
+            type="text"
+            id="role"
+            name="role"
+            value={formData.role}
+            placeholder="Enter your Role here"
             onChange={handleInputChange}
             required
           />
