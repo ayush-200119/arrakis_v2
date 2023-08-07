@@ -29,7 +29,7 @@ public class Securities {
 	private double faceValue;
 	private String status;
 	private String rating;
-	
+		
 	//constructors
 	public Securities(){
 		
