@@ -1,6 +1,7 @@
 package com.db.grad.javaapi.model;
 
 import java.sql.Date;
+import java.util.List;
 
 import javax.annotation.Generated;
 import javax.management.loading.PrivateClassLoader;
@@ -9,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -29,6 +31,9 @@ public class Securities {
 	private double faceValue;
 	private String status;
 	private String rating;
+	
+	@OneToMany(mappedBy = "security")
+	private List<Trades> trades;
 	
 	//constructors
 	public Securities(){

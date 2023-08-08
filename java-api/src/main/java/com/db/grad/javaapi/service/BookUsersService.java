@@ -25,7 +25,7 @@ public class BookUsersService {
 	
 	@Autowired
 	 private BookUsersRepository repository;
-		
+	
 	public List<Books> getBooksByUserId(int userId) throws ResourceNotFoundException{
 		List<Books> books = repository.findBooksByUserId(userId);
 		if(books.size()==0) {
