@@ -55,4 +55,8 @@ public class SecuritiesService {
 		repository.save(security);
 		return security;
 	}
+	
+	public List<Securities> createSecurities(List<Securities> securities) {
+		return repository.saveAll(securities);
+	}
 }

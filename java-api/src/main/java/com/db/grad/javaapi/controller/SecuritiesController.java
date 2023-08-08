@@ -1,17 +1,13 @@
 package com.db.grad.javaapi.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.*;
 
 import com.db.grad.javaapi.dto.SecuritiesDto;
 import com.db.grad.javaapi.exception.ResourceAlreadyExistsException;
 import com.db.grad.javaapi.exception.ResourceNotFoundException;
 import com.db.grad.javaapi.model.Securities;
+import com.db.grad.javaapi.model.Users;
 import com.db.grad.javaapi.service.SecuritiesService;
 import java.util.List;
 
@@ -53,5 +49,11 @@ public class SecuritiesController {
 	public Securities updateSecurity(@PathVariable(value="id") int id,@RequestBody SecuritiesDto updatedSecurity) 
 	throws ResourceNotFoundException{
 		return service.updateSecurity(updatedSecurity, id);
+	}
+	
+
+	@PostMapping("/securities")
+	public List<Securities> createSecurities(@RequestBody List<Securities> securities){
+		return service.createSecurities(securities);
 	}
 }

@@ -1,5 +1,7 @@
 package com.db.grad.javaapi.controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,5 +46,10 @@ public class UserController {
 	@PostMapping("/user/login")
 	public Users loginUser(@RequestBody UserLoginRequestDto request)throws ResourceNotFoundException{
 		return service.getUserByEmailAndPassword(request);
+	}
+	
+	@PostMapping("/users")
+	public List<Users> createUsers(@RequestBody List<Users> users){
+		return service.createUsers(users);
 	}
 }
