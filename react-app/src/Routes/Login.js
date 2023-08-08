@@ -1,12 +1,11 @@
 
 
 import React, { useState } from 'react';
-import '../styles/Login.css'
-import AuthService from '../services/auth.service';
-import { Link, useNavigate, useLocation } from "react-router-dom";
-import { Button } from 'bootstrap';
-import { ToastContainer, toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import AuthService from '../services/auth.service';
+import '../styles/Login.css';
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -29,10 +28,10 @@ const Login = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    if (username) {
+    if (email) {
       
     console.log("inside handleLogin")
-      AuthService.login(username, password).then(
+      AuthService.login(email, password).then(
         (res) => {
           if ((res.role).toLowerCase() === "user") {
             toast.success("Login successful!", {
@@ -83,7 +82,7 @@ const Login = () => {
             progress: undefined,
             theme: "light",
           });
-          setUsername("");
+          setEmail("");
           setPassword("");
       
         }
@@ -110,9 +109,9 @@ const Login = () => {
             type="text"
             id="Email"
             name="Email"
-            value={username}
+            value={email}
             placeholder="Enter your Email here"
-            onChange={(e) => setUsername(e.target.value)}
+            onChange={(e) => setEmail(e.target.value)}
             required
           />
   
