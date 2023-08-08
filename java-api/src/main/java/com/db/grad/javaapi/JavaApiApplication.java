@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class JavaApiApplication {
 
 	public static void main(String[] args) {
+		System.out.println("hello wodrldd");
 		SpringApplication.run(JavaApiApplication.class, args);
 	}
 

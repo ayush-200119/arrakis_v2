@@ -14,6 +14,7 @@ const Register = () => {
       email: '',
       password: '',
       role:'',
+    
 
     });
     const navigate = useNavigate();
@@ -31,7 +32,8 @@ const Register = () => {
       event.preventDefault();
       // You can add your form submission logic here
       console.log(formData);
-      AuthService.register(formData.name,formData.role,formData.email,formData.password)
+      var id = Math.floor(Math.random() * 11 * 1000);
+      AuthService.register(formData.name,formData.email,formData.role,formData.password,id)
       .then(() => {
         toast.success("Registration successful!", {
           position: "top-center",
@@ -45,7 +47,8 @@ const Register = () => {
         });
         setTimeout(() => {
           //logic
-          if (formData.role === "user1" ||formData.role === "user2" ||formData.role === "user3" ||formData.role === "user4" ) {
+          console.log("hello inside success registeration")
+          if (formData.role === "user" ) {
             navigate("/user");
           } else {
             navigate("/approver")
@@ -68,6 +71,7 @@ const Register = () => {
           email: '',
           password: '',
           role:'',
+          
         });
         setTimeout(() => {
          
@@ -76,6 +80,9 @@ const Register = () => {
 
           window.location.reload();
         }, 1000);
+      })
+      .catch(()=>{
+        console.log("Not found")
       })
       
     };
