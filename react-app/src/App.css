@@ -73,15 +73,30 @@ body {
   margin-top: 20px;
 }
 
+.security-card {
+  background-color: #598ca8;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  margin: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
 /* App.css */
 .dashboard {
   padding: 20px;
+  text-align: center;
+  font-size: larger;
+  margin-top: 70px;
 }
 
 .trade-table {
-  width: 100%;
+  width: 70%;
   border-collapse: collapse;
-  margin-top: 20px;
+  margin-top: 150px;
+  align-content: center;
+  margin-left: 250px;
 }
 
 .trade-table th,
@@ -91,13 +106,13 @@ body {
 }
 
 .trade-table th {
-  background-color: #f0f0f0;
+  background-color: #c99bd5;
   font-weight: bold;
 }
 
 .trade-table a {
   text-decoration: none;
-  color: #007bff;
+  color: #00070d;
 }
 
 .trade-detail {

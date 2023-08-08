@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import 'D:/arrakis_v2/react-app/src/App.css';
+
 const tradesData = [
   { id: 1, bookId: 'B001', quantity: 100, status: 'Active', price: 105, buyOrSell: 'Buy', tradeDate: '2023-08-10', settlementDate: '2023-08-12', counterparty: 'Counterparty A', issuer: 'Issuer X', maturity: '2025-12-31' },
   { id: 2, bookId: 'B002', quantity: 50, status: 'Pending', price: 98, buyOrSell: 'Sell', tradeDate: '2023-08-09', settlementDate: '2023-08-13', counterparty: 'Counterparty B', issuer: 'Issuer Y', maturity: '2026-03-15' },
@@ -32,7 +33,7 @@ const UserLanding = () => {
         <tbody>
           {trades.map(trade => (
             <tr key={trade.id}>
-              <td><Link to={`/trade/${trade.id}`}>{trade.bookId}</Link></td>
+              <td><Link to={`/SecurityCard/${bookId="B001"}`}>{trade.bookId}</Link></td>
               <td>{trade.quantity}</td>
               <td>{trade.status}</td>
               <td>{trade.price}</td>

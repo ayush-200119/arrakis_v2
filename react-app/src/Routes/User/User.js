@@ -1,7 +1,7 @@
-import React,{useState , useEffect} from 'react'
-import { Routes, Route } from "react-router-dom";
+import React from 'react';
+import { Route, Routes } from "react-router-dom";
 import UserLanding from './UserLanding';
-import UserMain from './UserMain'
+import UserMain from './UserMain';
 const User = () => {
   return (
     <Routes>
