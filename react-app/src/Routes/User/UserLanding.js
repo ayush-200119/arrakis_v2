@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../../App.css'
 import AuthService from '../../services/auth.service'
+import UserService from '../../services/user.service'
 const tradesDatas = [
   { id: 1, bookId: 'B001', quantity: 100, status: 'Active', price: 105, buyOrSell: 'Buy', tradeDate: '2023-08-10', settlementDate: '2023-08-12', counterparty: 'Counterparty A', issuer: 'Issuer X', maturity: '2025-12-31' },
   { id: 2, bookId: 'B002', quantity: 50, status: 'Pending', price: 98, buyOrSell: 'Sell', tradeDate: '2023-08-09', settlementDate: '2023-08-13', counterparty: 'Counterparty B', issuer: 'Issuer Y', maturity: '2026-03-15' },
@@ -9,13 +10,24 @@ const tradesDatas = [
   // Add more trades
 ];
 const user = AuthService.getCurrentUser();
+console.log("user data",user)
 const UserLanding = () => {
   const [tradesData,setTradesData] = useState([tradesDatas]);
   const [selectedOption, setSelectedOption] = useState(null);
   const options = ['All','Active Status', 'Pending Status'];
  
   const [trades,setTrades] = useState(tradesDatas);
-
+  
+  useEffect (()=>{
+    var id  = user.id
+    UserService.getAllTradesById(id)
+    .then((res)=>{
+      setTrades(res)
+    })
+    .catch((err)=>{
+      console.log("Error")
+    })
+  },[])
 
 
   const handleOptionChange = (option) => {
