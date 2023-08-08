@@ -34,4 +34,8 @@ public class BooksService {
 		
 		return repository.save(book);
 	}
+	
+	public List<Books> createBooks(List<Books> books) {
+		return repository.saveAll(books);
+	}
 }

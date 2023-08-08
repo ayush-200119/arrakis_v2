@@ -7,9 +7,11 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.db.grad.javaapi.dto.bookuserDto.BookUserCreateRequestDto;
 import com.db.grad.javaapi.dto.tradeDto.TradeCreateDto;
 import com.db.grad.javaapi.dto.tradeDto.TradeUpdateStatusDto;
 import com.db.grad.javaapi.exception.ResourceNotFoundException;
+import com.db.grad.javaapi.model.BookUsers;
 import com.db.grad.javaapi.model.Books;
 import com.db.grad.javaapi.model.CounterParties;
 import com.db.grad.javaapi.model.Securities;
@@ -78,6 +80,31 @@ public class TradeService {
 				book, counterParty, security, request.getQuantity(), request.getStatus(), request.getPrice(), request.getBuy_sell(), 
 				request.getTradeDate(), request.getSettlementDate());
 		return repository.save(trade);
+	}
+	
+	public List<Trades> createMultipleTrades(List<TradeCreateDto> request) throws ResourceNotFoundException{
+		
+		List<Trades> trades = new ArrayList<>();
+		for(TradeCreateDto curr:request)
+		{
+		Books book = booksRepository.findById(curr.getBookId()).
+				orElseThrow(() -> new ResourceNotFoundException("Foreign Key Constraint Voilated, book not found with the given id  " + curr.getBookId()));
+		System.out.println(book.getId());
+		
+		CounterParties counterParty= counterPartiesRepository.findById(curr.getCounterPartyId()).
+				orElseThrow(() -> new ResourceNotFoundException("Foreign Key Constraint Voilated, counter party not found with the given id  " + curr.getCounterPartyId()));
+		
+		Securities security = securitiesRepository.findById(curr.getSecurityId()).
+				orElseThrow(() -> new ResourceNotFoundException("Foreign Key Constraint Voilated, security not found with the given id  " + curr.getSecurityId()));
+		
+		Trades trade = new Trades(curr.getId(), curr.getSecurityId(), curr.getCounterPartyId(), curr.getBookId(),
+				book, counterParty, security, curr.getQuantity(), curr.getStatus(), curr.getPrice(), curr.getBuy_sell(), 
+				curr.getTradeDate(), curr.getSettlementDate());
+		
+		trades.add(trade);
+		}
+		
+		return repository.saveAll(trades);
 	}
 	
 }
