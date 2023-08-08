@@ -1,7 +1,5 @@
-import React from 'react'
-import { useState ,useEffect} from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import AuthService from '../../services/auth.service'
 
 
 const tradesDatas = [
@@ -92,8 +90,8 @@ const ApproverLanding = () => {
         </thead>
         <tbody>
           {trades.map(trade => (
-            <tr key={trade.id}>
-              <td><Link to={`/trade/${trade.id}`}>{trade.bookId}</Link></td>
+            <tr key={trade.bookId}>
+              <td><Link to={`/approver/trade/${trade.bookId}`}>{trade.bookId}</Link></td>
               <td>{trade.quantity}</td>
               <td>{trade.status}</td>
               <td>{trade.price}</td>
