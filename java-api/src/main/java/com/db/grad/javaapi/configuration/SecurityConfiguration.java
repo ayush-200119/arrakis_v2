@@ -20,6 +20,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
     
     protected void configure(HttpSecurity http) throws Exception {
     	http
+    	.headers().frameOptions().sameOrigin().and()
         .authorizeRequests()
             .anyRequest().permitAll() // Allow access to all endpoints
         .and()
