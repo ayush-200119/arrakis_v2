@@ -52,25 +52,25 @@ const App = () => {
             />} />
            
             <Route
-              path="/user/*"
-              element={
-                // <ProtectedRoute isAllowed={!!user1 && (user1 === "user1" || user1 === "user2" ||user1 === "user3" || user1 === "user4")}>
+                path="/user/*"
+                element={
+                  // <ProtectedRoute isAllowed={!!user1 && (user1.role === "User")}>
                   <User
-                  
-                   />
-                // </ProtectedRoute>
-              }>
+                    
+                     />
+                  // </ProtectedRoute>
+                }>
             </Route>
 
 
           <Route 
             path="/approver/*" 
             element={
-            <ProtectedRoute isAllowed={!!user1 && user1.role === "approver"}>
+            // <ProtectedRoute isAllowed={!!user1 && user1.role === "approver"}>
               <Approver
                 
               />
-              </ProtectedRoute>
+              // </ProtectedRoute>
             }>
           </Route>
 

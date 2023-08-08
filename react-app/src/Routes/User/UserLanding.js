@@ -39,11 +39,10 @@ const UserLanding = () => {
   useEffect(()=>{console.log("hello")},[trades]);
   useEffect(()=>{
     // console.log("helloinside useEffect")
-    // if(selectedOption=='All'){
-    //   setTrades(tradesDatas)
-    // }
-    // else 
-    if(selectedOption === "Active Status"){
+    if(selectedOption=='All'){
+      setTrades(tradesDatas)
+    }
+    else if(selectedOption === "Active Status"){
       var filter = tradesDatas.filter((d)=>d.status === 'Active')
       setTrades(filter)
     }
