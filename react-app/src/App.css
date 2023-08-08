@@ -137,6 +137,52 @@ button {
   margin: 10px;
 }
 
+/* App.css add trade */
+/* App.css */
+.add-trade-form {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  margin: 20px;
+}
+
+.add-trade-form h2 {
+  margin-bottom: 10px;
+}
+
+.add-trade-form label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.add-trade-form input,
+.add-trade-form select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.add-trade-form button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.add-trade-form button:hover {
+  background-color: #0056b3;
+}
+
+
+
 @media screen and (max-width: 768px) {
   .card {
     width: 90%;

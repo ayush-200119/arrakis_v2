@@ -70,6 +70,10 @@ const UserLanding = () => {
         ))}
       </select>
 
+      <Link to={"/user/addtrade"}>
+            <button>AddTrade</button>
+      </Link>
+
       <button onClick={handleSortClick}>Sort By Maturity Date</button>
 
       <table className="trade-table">
@@ -104,6 +108,7 @@ const UserLanding = () => {
           ))}
         </tbody>
       </table>
+
     </div>
   );
 };
