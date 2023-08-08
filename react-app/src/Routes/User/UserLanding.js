@@ -33,7 +33,7 @@ const UserLanding = () => {
         <tbody>
           {trades.map(trade => (
             <tr key={trade.id}>
-              <td><Link to={`/SecurityCard/${bookId="B001"}`}>{trade.bookId}</Link></td>
+              <td><Link to={`/SecurityCard/${trade.id}`}>{trade.bookId}</Link></td>
               <td>{trade.quantity}</td>
               <td>{trade.status}</td>
               <td>{trade.price}</td>
