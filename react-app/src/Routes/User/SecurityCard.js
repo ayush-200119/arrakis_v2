@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
-
+import { useParams } from 'react-router-dom';
 const SecurityCard = ({ bookId }) => {
   const [security, setSecurity] = useState(null);
-
+  // const location = useLocation();
+  // const [pathName, setPathName] = useState(null);
+    const params = useParams();
   // Simulated database with security details
   const securityDatabase = {
     B001: {
@@ -24,7 +26,8 @@ const SecurityCard = ({ bookId }) => {
 
   useEffect(() => {
     // Simulate fetching security details based on bookId
-    const fetchedSecurity = securityDatabase[bookId];
+    const fetchedSecurity = securityDatabase[params.bookID];
+    console.log(fetchedSecurity);
     setSecurity(fetchedSecurity);
   }, [bookId]);
 
