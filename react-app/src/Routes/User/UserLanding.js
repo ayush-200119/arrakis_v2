@@ -34,7 +34,7 @@ const UserLanding = () => {
    
   });
   setTrades(sorted);
-console.log(sorted)
+  console.log(sorted)
   }
   useEffect(()=>{console.log("hello")},[trades]);
   useEffect(()=>{
