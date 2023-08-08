@@ -1,5 +1,6 @@
 package com.db.grad.javaapi.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.h2.command.ddl.CreateUser;
@@ -46,4 +47,13 @@ public class UsersService {
 			return user;
 		throw new ResourceNotFoundException("Password incorrect");
 	}
+	
+	public List<Users> createUsers(List<Users> users){
+		for(int i=0;i<users.size();i++)
+		{
+			users.get(i).setPassword(passwordEncoder.encode(users.get(i).getPassword()));
+		}
+		return repository.saveAll(users);
+	}
+	
 }

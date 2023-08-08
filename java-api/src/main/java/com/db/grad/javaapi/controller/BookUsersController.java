@@ -15,6 +15,7 @@ import com.db.grad.javaapi.dto.bookuserDto.BookUserCreateRequestDto;
 import com.db.grad.javaapi.exception.ResourceNotFoundException;
 import com.db.grad.javaapi.model.BookUsers;
 import com.db.grad.javaapi.model.Books;
+import com.db.grad.javaapi.model.Users;
 import com.db.grad.javaapi.service.BookUsersService;
 
 
@@ -37,8 +38,11 @@ public class BookUsersController {
 	
 	@PostMapping("/books/user")
 	public BookUsers createBookUser(@RequestBody BookUserCreateRequestDto request) throws ResourceNotFoundException {
-		System.out.println(request.getUserId());
-		System.out.println(request.getBookId());
 		return service.createBookUsers(request.getUserId(),request.getBookId());
+	}
+	
+	@PostMapping("/bookusers")
+	public List<BookUsers> createBookUsers(@RequestBody List<BookUserCreateRequestDto> bookUsers)throws ResourceNotFoundException{
+		return service.createBookUsers(bookUsers);
 	}
 }

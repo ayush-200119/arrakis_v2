@@ -66,11 +66,11 @@ const App = () => {
           <Route 
             path="/approver/*" 
             element={
-            <ProtectedRoute isAllowed={!!user1 && user1.role === "approver"}>
+            // <ProtectedRoute isAllowed={!!user1 && user1.role === "approver"}>
               <Approver
                 
               />
-              </ProtectedRoute>
+              // </ProtectedRoute>
             }>
           </Route>
 

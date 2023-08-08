@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-const SecurityCard = ({ bookId }) => {
+const Security = ({ bookId }) => {
   const [security, setSecurity] = useState(null);
   // const location = useLocation();
   // const [pathName, setPathName] = useState(null);
@@ -47,4 +47,4 @@ const SecurityCard = ({ bookId }) => {
   );
 };
 
-export default SecurityCard;
+export default Security;

@@ -1,4 +1,4 @@
-import { useState ,useEffect} from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../../App.css'
 import AuthService from '../../services/auth.service'
@@ -72,6 +72,10 @@ const UserLanding = () => {
         ))}
       </select>
 
+      <Link to={"/user/addtrade"}>
+            <button>AddTrade</button>
+      </Link>
+
       <button onClick={handleSortClick}>Sort By Maturity Date</button>
 
       <table className="trade-table">
@@ -91,8 +95,8 @@ const UserLanding = () => {
         </thead>
         <tbody>
           {trades.map(trade => (
-            <tr key={trade.id}>
-              <td><Link to={`/trade/${trade.id}`}>{trade.bookId}</Link></td>
+            <tr key={trade.bookId}>
+              <td><Link to={`/user/trade/${trade.bookId}`}>{trade.bookId}</Link></td>
               <td>{trade.quantity}</td>
               <td>{trade.status}</td>
               <td>{trade.price}</td>
@@ -106,6 +110,7 @@ const UserLanding = () => {
           ))}
         </tbody>
       </table>
+
     </div>
   );
 };

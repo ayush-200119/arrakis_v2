@@ -22,6 +22,9 @@ public class Books {
 	@OneToMany(mappedBy = "book")
 	private List<BookUsers> bookUsers;
 	
+	@OneToMany(mappedBy = "book")
+	private List<Trades> trades;
+	
 	@Id
     @Column(name = "id", nullable = false)
 	public int getId() {

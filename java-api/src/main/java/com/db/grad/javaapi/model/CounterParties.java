@@ -1,8 +1,11 @@
 package com.db.grad.javaapi.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -11,6 +14,9 @@ public class CounterParties {
 	@Id
 	private int id;
 	private String name;
+	
+	@OneToMany(mappedBy = "counterParty")
+	private List<Trades> trades;
 	
 	@Column(name = "id",nullable = false)
 	public int getId() {

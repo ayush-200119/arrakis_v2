@@ -1,13 +1,16 @@
 package com.db.grad.javaapi.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.db.grad.javaapi.dto.bookuserDto.BookUserCreateRequestDto;
 import com.db.grad.javaapi.exception.ResourceNotFoundException;
 import com.db.grad.javaapi.model.BookUsers;
 import com.db.grad.javaapi.model.Books;
+import com.db.grad.javaapi.model.CounterParties;
 import com.db.grad.javaapi.model.Users;
 import com.db.grad.javaapi.model.id.BookUsersId;
 import com.db.grad.javaapi.repository.BookUsersRepository;
@@ -25,7 +28,7 @@ public class BookUsersService {
 	
 	@Autowired
 	 private BookUsersRepository repository;
-		
+	
 	public List<Books> getBooksByUserId(int userId) throws ResourceNotFoundException{
 		List<Books> books = repository.findBooksByUserId(userId);
 		if(books.size()==0) {
@@ -44,5 +47,22 @@ public class BookUsersService {
 		BookUsers bookUser = new BookUsers(id,user,book);
 		
 		return repository.save(bookUser);
+	}
+	
+	public List<BookUsers> createBookUsers(List<BookUserCreateRequestDto> request) throws ResourceNotFoundException{
+		List<BookUsers> bookUsers = new ArrayList<>();
+		for(BookUserCreateRequestDto curr:request)
+		{
+			Users user = userRepository.findById(curr.getUserId()).
+					orElseThrow(() -> new ResourceNotFoundException("Foreign Key Constraint Voilated, user not found with the given id  " + curr.getUserId()));
+			Books book = bookRepository.findById(curr.getBookId()).
+					orElseThrow(() -> new ResourceNotFoundException("Foreign Key Constraint Voilated, book not found with the given id  " + curr.getBookId()));
+			
+			BookUsersId id = new BookUsersId(curr.getBookId(),curr.getUserId());
+			BookUsers bookUser = new BookUsers(id,user,book);
+			
+			bookUsers.add(bookUser);
+		}
+		return repository.saveAll(bookUsers);
 	}
 }
