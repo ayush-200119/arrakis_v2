@@ -1,9 +1,8 @@
 
 
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import 'D:/arrakis_v2/react-app/src/styles/Login.css';
-
+import '../styles/Login.css';
+// import 'D:/arrakis_v2/react-app/src/styles/Login.css';
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -36,9 +35,7 @@ const Login = () => {
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
-       <Link to="D:/arrakis_v2/react-app/src/Routes/User/UserLanding.js">
-            <button>Login</button>
-       </Link>
+      <button onClick={handleLogin}>Login</button>
       {error && <p className="error">{error}</p>}
       </div>
       
