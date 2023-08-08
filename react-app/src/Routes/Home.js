@@ -2,7 +2,11 @@
 // Home.js
 import React from 'react';
 import { Link } from 'react-router-dom';
+<<<<<<< HEAD
 import '../App.css'
+=======
+import '../App.css';
+>>>>>>> da1afc24c3a4311cf78a4f7cc01feecabc3c28f2
 
 const Home = () => {
   return (

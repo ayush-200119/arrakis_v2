@@ -8,7 +8,7 @@ import { Button } from 'bootstrap';
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 const Login = () => {
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
@@ -102,7 +102,6 @@ const Login = () => {
     }
   };
   return (
-   
     <div className="login">
       
       <form onSubmit={handleLogin}>
@@ -134,8 +133,8 @@ const Login = () => {
         </form>
       {error && <p className="error">{error}</p>}
       </div>
+
       
   );
 };
-
 export default Login;
