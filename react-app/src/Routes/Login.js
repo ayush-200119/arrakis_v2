@@ -34,6 +34,7 @@ const Login = () => {
     console.log("inside handleLogin")
       AuthService.login(email, password).then(
         (res) => {
+          console.log(res);
           if ((res.role).toLowerCase() === "user") {
             toast.success("Login successful!", {
               position: "top-center",

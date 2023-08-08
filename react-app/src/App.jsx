@@ -9,7 +9,7 @@ import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import Approver from './Routes/Approver/Approver';
 import User from './Routes/User/User';
-
+import AuthService from './services/auth.service'
 import { useState } from 'react';
 
 const Main = lazy(() => import('./Routes/Main'))
@@ -19,8 +19,8 @@ const Home = lazy(() => import('./Routes/Home'))
 const Register = lazy(() => import('./Routes/Register'))
 const Login = lazy(() => import('./Routes/Login'))
 
-//const user1 = AuthService.getCurrentUser();
-const user1 = "approver"
+const user1 = AuthService.getCurrentUser();
+//const user1 = "approver"
 
 const RegisterSucces = lazy(() => import("./Routes/RegisterSuccess"))
 
@@ -54,11 +54,11 @@ const App = () => {
             <Route
               path="/user/*"
               element={
-                // <ProtectedRoute isAllowed={!!user1 && (user1 === "user1" || user1 === "user2" ||user1 === "user3" || user1 === "user4")}>
+                <ProtectedRoute isAllowed={!!user1 && (user1.role === "User")}>
                   <User
                   
                    />
-                // </ProtectedRoute>
+                </ProtectedRoute>
               }>
             </Route>
 

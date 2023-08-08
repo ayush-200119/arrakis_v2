@@ -33,9 +33,7 @@ const login = (email, password) => {
       
         console.log(response.data);
         sessionStorage.setItem("user", JSON.stringify(response.data));
-      
-
-     return response.data;
+        return response.data;
     })
     .catch(err => console.log(err.message));
 };
