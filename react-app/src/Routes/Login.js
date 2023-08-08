@@ -1,12 +1,13 @@
 
 
+
+
 import React, { useState } from 'react';
-import '../styles/Login.css'
-import AuthService from '../services/auth.service';
-import { Link, useNavigate, useLocation } from "react-router-dom";
-import { Button } from 'bootstrap';
-import { ToastContainer, toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import AuthService from '../services/auth.service';
+import '../styles/Login.css';
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');

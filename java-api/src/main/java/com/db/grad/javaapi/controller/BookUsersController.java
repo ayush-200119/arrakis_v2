@@ -37,8 +37,6 @@ public class BookUsersController {
 	
 	@PostMapping("/books/user")
 	public BookUsers createBookUser(@RequestBody BookUserCreateRequestDto request) throws ResourceNotFoundException {
-		System.out.println(request.getUserId());
-		System.out.println(request.getBookId());
 		return service.createBookUsers(request.getUserId(),request.getBookId());
 	}
 }
