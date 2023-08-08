@@ -1,6 +1,6 @@
 import { default as React, useState } from 'react';
 import AuthService from '../../services/auth.service';
-import 'D:/arrakis_v2/react-app/src/App.css';
+import '../../App.css'
 
 const bondsData = [
   { id: 1, name: 'Government Bond', yield: 2.5 },
@@ -11,7 +11,7 @@ const bondsData = [
 
 const UserLanding = () => {
 const user = AuthService.getCurrentUser();
-
+console.log("user is : " , user)
 const [bonds, setBonds] = useState(bondsData);
 const [selectedType, setSelectedType] = useState('all');
 
