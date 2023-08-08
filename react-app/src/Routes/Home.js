@@ -2,7 +2,7 @@
 // Home.js
 import React from 'react';
 import { Link } from 'react-router-dom';
-import 'D:/arrakis_v2/react-app/src/App.css';
+import '../App.css';
 
 const Home = () => {
   return (
