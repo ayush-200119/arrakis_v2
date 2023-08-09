@@ -47,14 +47,14 @@ const Login = () => {
               progress: undefined,
               theme: "light",
             });
-            setTimeout(() => {
+            // setTimeout(() => {
                 console.log("going to user")
                 console.log(res);
                 navigate("/user");
               
-            }, 5000);
+            // }, 5000);
           }
-          if ((res.role).toLowerCase() === "approver") {
+          if ((res.role).toLowerCase() === "admin") {
             toast.success("Login successful!", {
               position: "top-center",
               autoClose: 2000,
@@ -65,10 +65,10 @@ const Login = () => {
               progress: undefined,
               theme: "light",
             });
-            setTimeout(() => {
+            // setTimeout(() => {
               navigate("/approver");
              // window.location.reload();
-            }, 1000);
+            // }, 1000);
           }
           
           

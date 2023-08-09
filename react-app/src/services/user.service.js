@@ -32,12 +32,28 @@ const updateSecurityById =(id,rating,status) =>{
 const getAllTradesById = (id )=>{
     return axios.get(REACT_APP_API_URL + 'api/v1/trades/user/' + id)
 }
+
+const getAllTrades = ()=>{
+    return axios.get(REACT_APP_API_URL + 'api/v1/trades')
+}
+
+const createTrade = (trade)=>{
+    return axios.post(REACT_APP_API_URL + 'api/v1/trade',trade)
+}
+
+const updateTradeReason = (reason,tradeId)=>{
+    return axios.patch(REACT_APP_API_URL + 'api/v1/trade/'+tradeId,{reason})
+}
+
 const UserService = {
     getAllSecurity,
     createSecurity,
     getSecurityById,
     deleteSecurityById,
     updateSecurityById,
-    getAllTradesById
+    getAllTradesById,
+    getAllTrades,
+    createTrade,
+    updateTradeReason
 }
 export default UserService;

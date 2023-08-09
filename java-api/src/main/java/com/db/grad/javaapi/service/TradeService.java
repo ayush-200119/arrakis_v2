@@ -57,7 +57,7 @@ public class TradeService {
 	public Trades updateTrade (TradeUpdateStatusDto request,int tradeId) throws ResourceNotFoundException{
 		Trades trade = repository.findById(tradeId).
 				orElseThrow(() -> new ResourceNotFoundException("Trade not found for this id :: " + tradeId));
-		trade.setStatus(request.getStatus());
+		trade.setReason(request.getReason());
 		repository.save(trade);
 		return trade;
 	}
@@ -78,7 +78,7 @@ public class TradeService {
 		
 		Trades trade = new Trades(request.getId(), request.getSecurityId(), request.getCounterPartyId(), request.getBookId(),
 				book, counterParty, security, request.getQuantity(), request.getStatus(), request.getPrice(), request.getBuy_sell(), 
-				request.getTradeDate(), request.getSettlementDate());
+				request.getTradeDate(), request.getSettlementDate(),null);
 		return repository.save(trade);
 	}
 	
@@ -99,7 +99,7 @@ public class TradeService {
 		
 		Trades trade = new Trades(curr.getId(), curr.getSecurityId(), curr.getCounterPartyId(), curr.getBookId(),
 				book, counterParty, security, curr.getQuantity(), curr.getStatus(), curr.getPrice(), curr.getBuy_sell(), 
-				curr.getTradeDate(), curr.getSettlementDate());
+				curr.getTradeDate(), curr.getSettlementDate(),null);
 		
 		trades.add(trade);
 		}

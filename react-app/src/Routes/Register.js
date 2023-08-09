@@ -34,7 +34,7 @@ const Register = () => {
       console.log(formData);
       var id = Math.floor(Math.random() * 11 * 1000);
       AuthService.register(formData.name,formData.email,formData.role,formData.password,id)
-      .then(() => {
+      .then((response) => {
         toast.success("Registration successful!", {
           position: "top-center",
           autoClose: 3000,
@@ -45,7 +45,8 @@ const Register = () => {
           progress: undefined,
           theme: "light",
         });
-        setTimeout(() => {
+        sessionStorage.setItem("user", JSON.stringify(response.data));
+        // setTimeout(() => {
           //logic
           console.log("hello inside success registeration")
           if (formData.role === "user" ) {
@@ -53,7 +54,7 @@ const Register = () => {
           } else {
             navigate("/approver")
           }
-        }, 1000);
+        // }, 1000);
       },
       (error) => {
         toast.warn("User Already Exists", {
