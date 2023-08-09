@@ -1,9 +1,15 @@
 import React,{useState} from 'react'
 import { useLocation } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import './Trade.css';
 import UserService from "./../services/user.service"
 import { error } from 'jquery';
+import AuthService from '../services/auth.service';
 
+const user = AuthService.getCurrentUser();
+console.log(user);
 const Trade = ()=>{
 
     const [reason, setReason] = useState("");
@@ -18,6 +24,7 @@ const Trade = ()=>{
         
         return `${year}-${month}-${day}`;
       }
+      const navigate = useNavigate();
 
     const handleSubmitReason = (e)=>{
         e.preventDefault();
@@ -25,8 +32,33 @@ const Trade = ()=>{
         UserService.updateTradeReason(reason,someData.id).then(
             (res)=>{
                 console.log("Reason updated successfully");
+                toast.success("Reason updated successfully!", {
+                    position: "top-center",
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                  });
+                  if(user.role==='user')
+                    navigate("/user")
+                  else
+                    navigate("/approver")
+
             }).catch((err)=>{
                 console.log("Error: ",err);
+                toast.warn("Not able to update the reason", {
+                    position: "top-center",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                  });
             })
     }
 
