@@ -54,22 +54,22 @@ const AddTrade = () => {
           <h2>Add Trade</h2>
           <form onSubmit={handleSubmit}>
             <label>Book ID</label>
-            <input type="text" name="bookId" value={trade.bookId} onChange={handleInputChange} />
+            <input type="text" name="bookId" value={trade.bookId} required onChange={handleInputChange} />
     
             <label>Counterparty ID</label>
-            <input type="text" name="counterPartyId" value={trade.counterpartyId} onChange={handleInputChange} />
+            <input type="text" name="counterPartyId" value={trade.counterPartyId} onChange={handleInputChange} required />
     
             <label>Security ID</label>
-            <input type="text" name="securityId" value={trade.securityId} onChange={handleInputChange} />
+            <input type="text" name="securityId" value={trade.securityId} onChange={handleInputChange} required/>
     
             <label>Quantity</label>
-            <input type="number" name="quantity" value={trade.quantity} onChange={handleInputChange} />
+            <input type="number" name="quantity" value={trade.quantity} onChange={handleInputChange} required />
     
             <label>Status</label>
-            <input type="text" name="status" value={trade.status} onChange={handleInputChange} />
+            <input type="text" name="status" value={trade.status} onChange={handleInputChange} required />
     
             <label>Price</label>
-            <input type="number" name="price" value={trade.price} onChange={handleInputChange} />
+            <input type="number" name="price" value={trade.price} onChange={handleInputChange} required />
     
             <label>Buy/Sell</label>
             <select name="buy_sell" value={trade.buySell} onChange={handleInputChange}>
@@ -78,10 +78,10 @@ const AddTrade = () => {
             </select>
     
             <label>Trade Date</label>
-            <input type="date" name="tradeDate" value={trade.tradeDate} onChange={handleInputChange} />
+            <input type="date" name="tradeDate" value={trade.tradeDate} onChange={handleInputChange} required/>
     
             <label>Settlement Date</label>
-            <input type="date" name="settlementDate" value={trade.settlementDate} onChange={handleInputChange} />
+            <input type="date" name="settlementDate" value={trade.settlementDate} onChange={handleInputChange} required/>
     
             <button type="submit">Add Trade</button>
           </form>

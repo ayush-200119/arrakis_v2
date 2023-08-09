@@ -90,7 +90,17 @@ const ApproverLanding = () => {
     console.log(defaultTrades);
     setTrades(defaultTrades);
   };
+  const handleLogout = () => {
+       
+    setTimeout(()=>{
+    
 
+    AuthService.logout();
+  
+    navigate("/login")
+    },1000)
+    
+  }
   const handleAllBonds=()=>{
     UserService.getAllTrades()
         .then((res)=>{
@@ -104,7 +114,7 @@ const ApproverLanding = () => {
 
   return (
     <div className="dashboard">
-      <h1>Trade Management Dashboard</h1>
+      <h1>Trade Management Dashboard <button onClick={handleLogout}> Log Out </button></h1>
       <select
         value={selectedOption}
         onChange={(e) => handleOptionChange(e.target.value)}

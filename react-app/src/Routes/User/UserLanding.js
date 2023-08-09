@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import '../../App.css'
+import '../../App.css';
+import 'E:/arrakis_v2/react-app/src/styles/UserLanding.css';
 import AuthService from '../../services/auth.service'
 import UserService from '../../services/user.service'
+
 const tradesDatas = [
   // { id: 1, bookId: 'B001', quantity: 100, status: 'Active', price: 105, buyOrSell: 'Buy', tradeDate: '2023-08-10', settlementDate: '2023-08-12', counterparty: 'Counterparty A', issuer: 'Issuer X', maturity: '2025-12-31' },
   // { id: 2, bookId: 'B002', quantity: 50, status: 'Pending', price: 98, buyOrSell: 'Sell', tradeDate: '2023-08-09', settlementDate: '2023-08-13', counterparty: 'Counterparty B', issuer: 'Issuer Y', maturity: '2026-03-15' },
@@ -105,11 +107,22 @@ const UserLanding = () => {
     }
   },[selectedOption])
 
+  const handleLogout = () => {
+       
+    setTimeout(()=>{
+    
+
+    AuthService.logout();
   
+    navigate("/login")
+    },1000)
+    
+  }
 
   return (
     <div className="dashboard">
-      <h1>Trade Management Dashboard</h1>
+      <h1>Trade Management Dashboard <button onClick={handleLogout}> Log Out </button></h1>
+      
       <select
         value={selectedOption}
         onChange={(e) => handleOptionChange(e.target.value)}
@@ -171,7 +184,8 @@ const UserLanding = () => {
           ))}
         </tbody>
       </table>
-            
+
+        
     </div>
   );
 };

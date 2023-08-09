@@ -36,6 +36,8 @@ const Login = () => {
       AuthService.login(email, password).then(
         (res) => {
           console.log(res);
+          
+          
           if ((res.role).toLowerCase() === "user") {
             toast.success("Login successful!", {
               position: "top-center",
@@ -70,6 +72,9 @@ const Login = () => {
              // window.location.reload();
             // }, 1000);
           }
+
+
+        
           
           
         },
@@ -87,6 +92,7 @@ const Login = () => {
           });
           setEmail("");
           setPassword("");
+          window.location.reload(false);
       
         }
       );
@@ -101,6 +107,8 @@ const Login = () => {
         progress: undefined,
         theme: "light",
       });
+      window.location.reload(false);
+
     }
   };
   return (
