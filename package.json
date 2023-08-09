@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "dayjs": "^1.11.9",
+    "socket.io": "^4.7.2"
+  }
+}
