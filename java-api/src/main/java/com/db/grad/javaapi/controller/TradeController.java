@@ -49,7 +49,11 @@ public class TradeController {
 	
 	@PostMapping("/trade")
 	public Trades createTrade(@RequestBody TradeCreateDto request)throws ResourceNotFoundException{
-		System.out.println(request.getBookId());
 		return service.createTrades(request);
+	}
+	
+	@PostMapping("trades")
+	public List<Trades> createTrades(@RequestBody List<TradeCreateDto> request)throws ResourceNotFoundException{
+		return service.createMultipleTrades(request);
 	}
 }

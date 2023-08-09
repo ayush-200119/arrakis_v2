@@ -35,6 +35,7 @@ const Login = () => {
     console.log("inside handleLogin")
       AuthService.login(email, password).then(
         (res) => {
+          console.log(res);
           if ((res.role).toLowerCase() === "user") {
             toast.success("Login successful!", {
               position: "top-center",
@@ -46,14 +47,14 @@ const Login = () => {
               progress: undefined,
               theme: "light",
             });
-            setTimeout(() => {
+            // setTimeout(() => {
                 console.log("going to user")
                 console.log(res);
                 navigate("/user");
               
-            }, 5000);
+            // }, 5000);
           }
-          if ((res.role).toLowerCase() === "approver") {
+          if ((res.role).toLowerCase() === "admin") {
             toast.success("Login successful!", {
               position: "top-center",
               autoClose: 2000,
@@ -64,10 +65,10 @@ const Login = () => {
               progress: undefined,
               theme: "light",
             });
-            setTimeout(() => {
+            // setTimeout(() => {
               navigate("/approver");
              // window.location.reload();
-            }, 1000);
+            // }, 1000);
           }
           
           
@@ -104,7 +105,7 @@ const Login = () => {
   };
   return (
     <div className="login">
-      
+      <h2>Login Here</h2>
       <form onSubmit={handleLogin}>
           <label htmlFor="Email">Email:</label>
           <input

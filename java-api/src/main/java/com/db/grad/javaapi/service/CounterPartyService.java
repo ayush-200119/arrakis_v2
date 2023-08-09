@@ -1,5 +1,6 @@
 package com.db.grad.javaapi.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.db.grad.javaapi.exception.ResourceAlreadyExistsException;
 import com.db.grad.javaapi.exception.ResourceNotFoundException;
+import com.db.grad.javaapi.model.Books;
 import com.db.grad.javaapi.model.CounterParties;
 import com.db.grad.javaapi.repository.CounterPartyRepository;
 
@@ -30,4 +32,7 @@ public class CounterPartyService {
 		return Cp;
 	}
 	
+	public List<CounterParties> createCounterParties(List<CounterParties> cp) {
+		return repository.saveAll(cp);
+	}
 }

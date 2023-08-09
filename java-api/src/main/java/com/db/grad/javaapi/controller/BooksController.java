@@ -36,4 +36,9 @@ public class BooksController {
 	public Books getBookById(@PathVariable(value="id") int id) throws ResourceNotFoundException {
 		return service.getBookById(id);
 	}
+	
+	@PostMapping("/books")
+	public List<Books> createBooks(@RequestBody List<Books> books){
+		return service.createBooks(books);
+	}
 }

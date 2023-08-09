@@ -1,0 +1,53 @@
+/* TradeCard.css */
+
+
+.trade-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    padding: 20px;
+    width: 70%;
+    margin: auto;
+    margin-top: 3%;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  h1{
+    margin-bottom: 1%;
+  }
+
+  .trade-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .trade-field {
+    margin-bottom: 15px;
+  }
+  
+  .trade-field strong {
+    display: inline-block;
+    width: 140px;
+    font-weight: bold;
+  }
+  
+  .trade-header {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .trade-status {
+    font-weight: bold;
+    color: #e57373;
+  }
+  
+  .trade-buy-sell {
+    font-weight: bold;
+    color: #81c784;
+  }
+  
+  .trade-date {
+    font-style: italic;
+    color: #616161;
+  }

@@ -31,11 +31,9 @@ const login = (email, password) => {
       password
     }).then((response) => {
       
-        console.log(response.data);
+        console.log("axios call resolved",response.data);
         sessionStorage.setItem("user", JSON.stringify(response.data));
-      
-
-     return response.data;
+        return response.data;
     })
     .catch(err => console.log(err.message));
 };

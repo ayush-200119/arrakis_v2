@@ -65,17 +65,24 @@ public class Trades {
 	private String buy_sell;
 	private Date tradeDate;
 	private Date settlementDate;
+	private String reason;
 	
-	
-	
+	@Column(name = "reason" , nullable = true)
+	public String getReason() {
+		return reason;
+	}
+	public void setReason(String reason) {
+		this.reason = reason;
+	}
 	public Trades() {
 		super();
 	}
 	
 	
+	
 	public Trades(int id, int securityId, int counterPartyId, int bookId, Books book, CounterParties counterParty,
 			Securities security, int quantity, String status, double price, String buy_sell, Date tradeDate,
-			Date settlementDate) {
+			Date settlementDate, String reason) {
 		super();
 		this.id = id;
 		this.securityId = securityId;
@@ -90,6 +97,7 @@ public class Trades {
 		this.buy_sell = buy_sell;
 		this.tradeDate = tradeDate;
 		this.settlementDate = settlementDate;
+		this.reason = reason;
 	}
 	@Column(name = "id" , nullable = false)
 	public int getId() {
