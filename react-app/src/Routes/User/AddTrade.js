@@ -3,6 +3,7 @@
 //import 'react-datepicker/dist/react-datepicker.css';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { toast } from "react-toastify";
 import UserService from '../../services/user.service'
 import User from './User';
 import AuthService from '../../services/auth.service'
@@ -41,6 +42,16 @@ const AddTrade = () => {
         //Add logic to save trade data to a database or perform other actions
         UserService.createTrade(trade).then(
           (res)=>{
+            toast.success("Trade Added Successfully!", {
+              position: "top-center",
+              autoClose: 2000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "light",
+            });
             console.log("Inserted Successfully");
             navigate('/approver');
 

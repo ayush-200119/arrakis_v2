@@ -74,7 +74,7 @@ const Login = () => {
           
         },
         (error) => {
-          console.log(error)
+          console.log("here in error",error)
           toast.warn("Login failed", {
             position: "top-center",
             autoClose: 5000,
@@ -89,7 +89,21 @@ const Login = () => {
           setPassword("");
       
         }
-      );
+      ).catch((err)=>{
+        console.log("here in error",err)
+          toast.warn("Login failed", {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
+          setEmail("");
+          setPassword("");
+      });
     } else {
       toast.warn("data invalid", {
         position: "top-center",
