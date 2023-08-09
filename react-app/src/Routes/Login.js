@@ -36,6 +36,8 @@ const Login = () => {
       AuthService.login(email, password).then(
         (res) => {
           console.log(res);
+          
+          
           if ((res.role).toLowerCase() === "user") {
             toast.success("Login successful!", {
               position: "top-center",
@@ -70,11 +72,14 @@ const Login = () => {
              // window.location.reload();
             // }, 1000);
           }
+
+
+        
           
           
         },
         (error) => {
-          console.log(error)
+          console.log("here in error",error)
           toast.warn("Login failed", {
             position: "top-center",
             autoClose: 5000,
@@ -87,9 +92,24 @@ const Login = () => {
           });
           setEmail("");
           setPassword("");
+          window.location.reload(false);
       
         }
-      );
+      ).catch((err)=>{
+        console.log("here in error",err)
+          toast.warn("Login failed", {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
+          setEmail("");
+          setPassword("");
+      });
     } else {
       toast.warn("data invalid", {
         position: "top-center",
@@ -101,6 +121,8 @@ const Login = () => {
         progress: undefined,
         theme: "light",
       });
+      window.location.reload(false);
+
     }
   };
   return (
